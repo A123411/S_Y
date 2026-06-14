@@ -1,246 +1,259 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>دعوة زفاف إلكترونية</title>
+    <title>Wedding Invitation</title>
     <style>
-        /* إعدادات الخطوط والخلفية الأساسية للموقع */
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap');
+        /* استيراد الخطوط الفخمة والمطابقة للصور بالملي */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,400&family=Montserrat:wght@400;500;600&display=swap');
 
         html, body {
             margin: 0;
             padding: 0;
             width: 100%;
-            background-color: #f7ede2; /* درجة البيج الدافئة المأخوذة من صورك */
-            font-family: 'Cairo', sans-serif;
-            color: #5e3e29; /* اللون البني الأنيق للنصوص */
+            background-color: #f6eee3; /* درجة البيج الدافئة المأخوذة من صورك */
+            font-family: 'Montserrat', sans-serif;
+            color: #5d3f2e; /* اللون البني الغامق الأنيق للكتابة */
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* الحاوية الرئيسية لجعل التصميم يبدو كشاشة موبايل متناسقة */
-        .wrapper {
+        /* الحاوية الرئيسية للحفاظ على أبعاد الموبايل المظبوطة */
+        .invitation-container {
             max-width: 450px;
             margin: 0 auto;
-            background-color: #f7ede2;
+            background-color: #f6eee3;
             box-sizing: border-box;
-            padding: 20px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 0 50px 0;
+        }
+
+        /* تنسيق أقسام الصفحة بالتتابع */
+        .section {
+            width: 100%;
+            text-align: center;
+            padding: 40px 20px;
+            box-sizing: border-box;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* العناوين الكبيرة اللاتينية (مثل LET'S GET MARRIED) */
-        .main-title {
+        /* العناوين الضخمة اللاتينية الفخمة */
+        .serif-title {
             font-family: 'Playfair Display', serif;
-            font-size: 32px;
+            font-size: 36px;
             font-weight: 900;
             text-transform: uppercase;
-            text-align: center;
-            color: #5e3e29;
-            margin: 20px 0 5px 0;
-            letter-spacing: 1px;
+            color: #5d3f2e;
+            margin: 10px 0;
+            letter-spacing: 2px;
         }
 
-        .divider {
-            text-align: center;
-            letter-spacing: 5px;
-            color: #5e3e29;
+        .serif-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-style: italic;
+            color: #5d3f2e;
+            margin-bottom: 15px;
+        }
+
+        .dots-divider {
+            letter-spacing: 6px;
+            font-size: 18px;
             opacity: 0.5;
             margin-bottom: 25px;
         }
 
-        /* قسم صور العرسان (الطفلين في المثال) */
-        .couples-section {
-            display: flex;
-            justify-content: space-around;
-            width: 100%;
-            margin-bottom: 30px;
-        }
-
-        .couple-box {
-            text-align: center;
-            width: 45%;
-        }
-
-        .couple-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            font-style: italic;
-            margin-bottom: 10px;
-        }
-
-        .frame-container {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            border: 2px solid #5e3e29;
-            padding: 5px;
-            background-color: #f7ede2;
-            box-shadow: 3px 3px 0px #5e3e29;
-        }
-
-        .frame-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* النصوص الترحيبية */
-        .welcome-text {
-            text-align: center;
-            font-size: 16px;
+        /* نصوص الدعوة الترحيبية الراقية */
+        .content-p {
+            font-size: 14px;
             line-height: 1.8;
-            padding: 0 10px;
-            margin-bottom: 40px;
+            max-width: 340px;
+            margin: 0 auto 20px auto;
+            text-align: center;
+            opacity: 0.85;
+            font-weight: 400;
         }
 
-        /* بطاقات البرامج والجدول الزمني */
-        .card {
-            background-color: rgba(255, 255, 255, 0.5);
-            border: 1px dashed #5e3e29;
-            border-radius: 15px;
+        /* بطاقات جدول الحفل (Program) المستديرة والمخرمة بالتنقيط */
+        .program-card {
+            background-color: rgba(255, 255, 255, 0.4);
+            border: 1px dashed #5d3f2e;
+            border-radius: 16px;
             width: 100%;
-            padding: 20px;
-            margin-bottom: 20px;
+            max-width: 380px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
             box-sizing: border-box;
             display: flex;
             align-items: center;
+            text-align: left; /* جعل الاتجاه لليسار لأن التصميم بالكامل إنجليزي */
         }
 
-        .card-icon {
-            width: 50px;
-            height: 50px;
-            margin-left: 15px;
+        .program-icon {
+            width: 40px;
+            height: 40px;
             object-fit: contain;
+            margin-right: 15px; /* مسافة للأيقونة من اليسار */
         }
 
-        .card-content {
+        .program-details {
             flex: 1;
         }
 
-        .time-tag {
-            font-weight: bold;
+        .time-text {
+            font-family: 'Playfair Display', serif;
             font-size: 18px;
-            color: #5e3e29;
+            font-weight: 700;
+            margin-bottom: 2px;
         }
 
-        /* الأزرار الاحترافية (مثل خرائط جوجل وتأكيد الحضور RSVP) */
-        .btn-action {
+        /* باليتة الألوان الخاصة بقواعد اللباس (Dress Code) */
+        .color-palette {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .color-item {
+            text-align: center;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .circle-preview {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            margin-bottom: 6px;
+            border: 1px solid rgba(93, 63, 46, 0.15);
+        }
+
+        /* الأزرار الاحترافية المصمتة والمفرغة */
+        .btn-link {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background-color: #5e3e29;
-            color: #f7ede2;
+            background-color: #5d3f2e;
+            color: #f6eee3;
             text-decoration: none;
-            padding: 12px 30px;
-            border-radius: 25px;
-            font-weight: bold;
-            font-size: 16px;
-            margin: 20px 0;
+            padding: 12px 35px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 15px;
             border: none;
-            cursor: pointer;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(93, 63, 46, 0.15);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        /* قسم الدريس كود (Dress Code) دائري ومطابق بالملي */
-        .palette-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 20px 0;
-        }
-
-        .color-circle {
-            width: 60px;
-            text-align: center;
-            font-size: 12px;
-        }
-
-        .circle {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin: 0 auto 5px auto;
-            border: 1px solid rgba(0,0,0,0.1);
+        .btn-rsvp {
+            background-color: transparent;
+            color: #5d3f2e;
+            border: 1.5px solid #5d3f2e;
+            padding: 10px 50px;
+            box-shadow: none;
         }
     </style>
 </head>
 <body>
 
-    <div class="wrapper">
-        
-        <h1 class="main-title">Let's Get Married</h1>
-        <div class="divider">............</div>
+    <div class="invitation-container">
 
-        <div class="couples-section">
-            <div class="couple-box">
-                <div class="couple-name">Adam</div>
-                <div class="frame-container">
-                    <img src="ضع_صورة_العريس_هنا.jpg" alt="Adam">
+        <div class="section">
+            <h1 class="serif-title" style="font-size: 28px;">Dear Guests!</h1>
+            <div class="dots-divider">............</div>
+            
+            <p class="content-p">
+                Something wonderful is about to happen in our lives. We would be so happy to share this special day with the people who matter most to us — our family and dearest friends. Please join us as we celebrate the beginning of our forever.
+            </p>
+        </div>
+
+        <div class="section" style="padding-top: 0;">
+            <h1 class="serif-title">JULY</h1>
+            <div class="serif-subtitle" style="font-size: 18px; margin-bottom: 5px; font-style: normal;">two thousand twenty-six</div>
+            <div class="serif-subtitle" style="font-size: 20px; font-weight: bold; margin-top: 10px;">Friday, July 10, 2026</div>
+        </div>
+
+        <div class="section">
+            <h1 class="serif-title">LOCATION</h1>
+            <div class="serif-subtitle" style="font-size: 22px; font-style: normal; margin-bottom: 5px;">White Garden</div>
+            <p class="content-p" style="margin-bottom: 10px;">An open-air wedding venue tucked among olive trees and warm string lights, just outside the heart of Cairo, Egypt.</p>
+            
+            <a href="رابط_جوجل_ماب_هنا" class="btn-link">📍 Open in Google Maps</a>
+        </div>
+
+        <div class="section">
+            <h1 class="serif-title">PROGRAM</h1>
+            <div class="dots-divider">............</div>
+
+            <div class="program-card">
+                <img src="أيقونة_ساعة_أو_وصول.png" class="program-icon" alt="">
+                <div class="program-details">
+                    <div class="time-text">5:00 PM</div>
+                    <div style="font-weight: 600;">Guest Arrival</div>
+                    <div style="font-size: 12px; opacity: 0.7;">Bring your warmest smile and a heart full of joy.</div>
                 </div>
             </div>
-            <div class="couple-box">
-                <div class="couple-name">Farah</div>
-                <div class="frame-container">
-                    <img src="ضع_صورة_العروس_هنا.jpg" alt="Farah">
+
+            <div class="program-card">
+                <img src="أيقونة_عقد_قران.png" class="program-icon" alt="">
+                <div class="program-details">
+                    <div class="time-text">6:00 PM</div>
+                    <div style="font-weight: 600;">Ceremony</div>
+                    <div style="font-size: 12px; opacity: 0.7;">The moment we say I do — under string lights and stars.</div>
+                </div>
+            </div>
+
+            <div class="program-card">
+                <img src="أيقونة_عشاء.png" class="program-icon" alt="">
+                <div class="program-details">
+                    <div class="time-text">7:30 PM</div>
+                    <div style="font-weight: 600;">Dinner</div>
+                    <div style="font-size: 12px; opacity: 0.7;">A long table, candlelight, and food made with love.</div>
                 </div>
             </div>
         </div>
 
-        <h2 class="main-title" style="font-size: 24px;">Dear Guests!</h2>
-        <p class="welcome-text">
-            هنالك شيء رائع على وشك أن يحدث في حياتنا. سنكون سعداء جداً بمشاركتكم هذا اليوم المميز مع الأشخاص الأكثر أهمية بالنسبة لنا — عائلتنا وأصدقائنا الأعزاء.
-        </p>
-
-        <h2 class="main-title">Location</h2>
-        <p class="welcome-text" style="margin-bottom: 10px;"><b>White Garden</b><br>الشيخ زايد، القاهرة، مصر</p>
-        
-        <a href="ضع_رابط_جوجل_ماب_هنا" class="btn-action">📍 Open in Google Maps</a>
-
-        <h2 class="main-title">Program</h2>
-        <div class="divider">............</div>
-
-        <div class="card">
-            <img src="ضع_أيقونة_كاميرا_أو_ساعة.png" class="card-icon" alt="">
-            <div class="card-content">
-                <div class="time-tag">5:00 PM</div>
-                <div style="font-weight: bold;">Guest Arrival</div>
-                <div style="font-size: 13px; opacity: 0.8;">حضور الضيوف الكرام</div>
+        <div class="section">
+            <h1 class="serif-title">DRESS CODE</h1>
+            <p class="content-p" style="margin-bottom: 10px;">We'd love it if you matched our soft, romantic palette — anything in these warm, earthy tones will look beautiful in our garden setting.</p>
+            
+            <div class="color-palette">
+                <div class="color-item">
+                    <div class="circle-preview" style="background-color: #e9c8cc;"></div>
+                    <span>Soft Pink</span>
+                </div>
+                <div class="color-item">
+                    <div class="circle-preview" style="background-color: #ebdcb9;"></div>
+                    <span>Beige</span>
+                </div>
+                <div class="color-item">
+                    <div class="circle-preview" style="background-color: #8b5d43;"></div>
+                    <span>Warm Brown</span>
+                </div>
+                <div class="color-item">
+                    <div class="circle-preview" style="background-color: #dfceaa;"></div>
+                    <span>Champagne</span>
+                </div>
             </div>
         </div>
 
-        <div class="card">
-            <img src="ضع_أيقونة_دبل_أو_زفاف.png" class="card-icon" alt="">
-            <div class="card-content">
-                <div class="time-tag">6:00 PM</div>
-                <div style="font-weight: bold;">Ceremony</div>
-                <div style="font-size: 13px; opacity: 0.8;">بدء مراسم عقد القران</div>
-            </div>
+        <div class="section">
+            <h1 class="serif-title" style="font-size: 32px; margin-bottom: 5px;">RSVP</h1>
+            <p class="content-p" style="margin-bottom: 15px;">We'd be so happy to have you with us on our big day. Please let us know if you can make it.</p>
+            
+            <a href="رابط_فورم_تأكيد_الحضور_هنا" class="btn-link btn-rsvp">Fill the Form</a>
         </div>
-
-        <h2 class="main-title">Dress Code</h2>
-        <p class="welcome-text" style="margin-bottom: 5px;">يسعدنا توافق ألوان ملابسكم مع لوحة ألوان الحفل الدافئة:</p>
-        
-        <div class="palette-container">
-            <div class="color-circle">
-                <div class="circle" style="background-color: #f3c6cf;"></div>
-                <span>Soft Pink</span>
-            </div>
-            <div class="color-circle">
-                <div class="circle" style="background-color: #eeddb2;"></div>
-                <span>Beige</span>
-            </div>
-            <div class="color-circle">
-                <div class="circle" style="background-color: #8b5a2b;"></div>
-                <span>Brown</span>
-            </div>
-        </div>
-
-        <h2 class="main-title">RSVP</h2>
-        <a href="ضع_رابط_فورم_تأكيد_الحضور_هنا" class="btn-action">Fill the Form</a>
 
     </div>
 
 </body>
 </html>
-
