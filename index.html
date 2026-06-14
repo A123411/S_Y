@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- قفل الزوم تماماً لتثبيت المقاسات بالملي على الموبايل user-scalable=no -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Wedding Invitation</title>
+    <title>Wedding Invitation - Saif & Yara</title>
     <style>
         /* استيراد الخطوط الفخمة والمطابقة للصور بالملي */
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,400&family=Montserrat:wght@400;500;600&display=swap');
@@ -61,6 +62,18 @@
             margin-bottom: 15px;
         }
 
+        /* تنسيق خاص وعريض لأسماء العرسان */
+        .couple-names {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: #5d3f2e;
+            margin: 25px 0 10px 0;
+            letter-spacing: 1px;
+            line-height: 1.4;
+        }
+
         .dots-divider {
             letter-spacing: 6px;
             font-size: 18px;
@@ -91,14 +104,14 @@
             box-sizing: border-box;
             display: flex;
             align-items: center;
-            text-align: left; /* جعل الاتجاه لليسار لأن التصميم بالكامل إنجليزي */
+            text-align: left;
         }
 
         .program-icon {
             width: 40px;
             height: 40px;
             object-fit: contain;
-            margin-right: 15px; /* مسافة للأيقونة من اليسار */
+            margin-right: 15px;
         }
 
         .program-details {
@@ -167,33 +180,50 @@
 
     <div class="invitation-container">
 
+        <!-- Section 1: Introduction & Names -->
         <div class="section">
-            <h1 class="serif-title" style="font-size: 28px;">Dear Guests!</h1>
+            <h1 class="serif-title" style="font-size: 26px;">Let's Get Married</h1>
             <div class="dots-divider">............</div>
-            
+
+            <!-- إضافة أسامي العرسان في الصدارة بشكل فخم وثابت بالملي -->
+            <div class="couple-names">
+                SAIF ELKHATEB <br>
+                <span style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 24px; text-transform: none; font-weight: normal;">&</span> <br>
+                YARA MIKHEMAR
+            </div>
+        </div>
+
+        <!-- Section 2: Welcome Text -->
+        <div class="section" style="padding-top: 0;">
+            <h2 class="serif-subtitle" style="font-size: 28px; font-style: normal;">Dear Guests!</h2>
             <p class="content-p">
                 Something wonderful is about to happen in our lives. We would be so happy to share this special day with the people who matter most to us — our family and dearest friends. Please join us as we celebrate the beginning of our forever.
             </p>
         </div>
 
+        <!-- Section 3: Date Info (July) -->
         <div class="section" style="padding-top: 0;">
             <h1 class="serif-title">JULY</h1>
             <div class="serif-subtitle" style="font-size: 18px; margin-bottom: 5px; font-style: normal;">two thousand twenty-six</div>
             <div class="serif-subtitle" style="font-size: 20px; font-weight: bold; margin-top: 10px;">Friday, July 10, 2026</div>
         </div>
 
+        <!-- Section 4: Location -->
         <div class="section">
             <h1 class="serif-title">LOCATION</h1>
             <div class="serif-subtitle" style="font-size: 22px; font-style: normal; margin-bottom: 5px;">White Garden</div>
             <p class="content-p" style="margin-bottom: 10px;">An open-air wedding venue tucked among olive trees and warm string lights, just outside the heart of Cairo, Egypt.</p>
             
+            <!-- زر لوكيشن جوجل ماب -->
             <a href="رابط_جوجل_ماب_هنا" class="btn-link">📍 Open in Google Maps</a>
         </div>
 
+        <!-- Section 5: Program -->
         <div class="section">
             <h1 class="serif-title">PROGRAM</h1>
             <div class="dots-divider">............</div>
 
+            <!-- Event 1 -->
             <div class="program-card">
                 <img src="أيقونة_ساعة_أو_وصول.png" class="program-icon" alt="">
                 <div class="program-details">
@@ -203,6 +233,7 @@
                 </div>
             </div>
 
+            <!-- Event 2 -->
             <div class="program-card">
                 <img src="أيقونة_عقد_قران.png" class="program-icon" alt="">
                 <div class="program-details">
@@ -212,6 +243,7 @@
                 </div>
             </div>
 
+            <!-- Event 3 -->
             <div class="program-card">
                 <img src="أيقونة_عشاء.png" class="program-icon" alt="">
                 <div class="program-details">
@@ -222,6 +254,7 @@
             </div>
         </div>
 
+        <!-- Section 6: Dress Code -->
         <div class="section">
             <h1 class="serif-title">DRESS CODE</h1>
             <p class="content-p" style="margin-bottom: 10px;">We'd love it if you matched our soft, romantic palette — anything in these warm, earthy tones will look beautiful in our garden setting.</p>
@@ -246,10 +279,12 @@
             </div>
         </div>
 
+        <!-- Section 7: RSVP -->
         <div class="section">
             <h1 class="serif-title" style="font-size: 32px; margin-bottom: 5px;">RSVP</h1>
             <p class="content-p" style="margin-bottom: 15px;">We'd be so happy to have you with us on our big day. Please let us know if you can make it.</p>
             
+            <!-- زر تعبئة استمارة تأكيد الحضور -->
             <a href="رابط_فورم_تأكيد_الحضور_هنا" class="btn-link btn-rsvp">Fill the Form</a>
         </div>
 
