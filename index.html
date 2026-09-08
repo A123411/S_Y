@@ -2,273 +2,322 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Saif & Yara Wedding Invitation</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600&display=swap');
-
-        :root {
-            --bg-color: #fbf7f2; /* خلفية ناعمة مريحة بدون تعقيد */
-            --primary-dark: #3d2519; /* بني غامق عالي التباين للقراءة */
-            --accent-gold: #b29365; /* ذهبي متزن */
-            --text-main: #543d31; /* لون النص الأساسي واضح جداً */
-            --glass-bg: rgba(255, 255, 255, 0.6);
-            --glass-border: rgba(178, 147, 101, 0.2);
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Mobile UI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        fb: {
+                            blue: '#1877F2',
+                            bg: '#F0F2F5',
+                            dark: '#1C1E21',
+                            secondary: '#65676B',
+                            border: '#CED0D4',
+                            hover: '#E4E6EB'
+                        }
+                    }
+                }
+            }
         }
-
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            min-height: 100vh;
-            background-color: var(--bg-color);
-            font-family: 'Montserrat', sans-serif;
-            color: var(--primary-dark);
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* حاوية الموبايل - بدون أي فريمات خانقة */
-        .invitation-container {
-            max-width: 412px;
-            margin: 0 auto;
-            box-sizing: border-box;
-            padding: 40px 24px 120px 24px; /* مساحة سفلية ضخمة 120 بكسل لمنع التداخل مع شريط الموبايل */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .section {
-            width: 100%;
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        /* خطوط كلاسيكية فخمة وواضحة */
-        .serif-subtitle {
-            font-family: 'Cinzel', serif;
-            font-size: 13px;
-            font-weight: 600;
-            text-transform: uppercase;
-            color: var(--accent-gold);
-            letter-spacing: 6px;
-            margin-bottom: 20px;
-        }
-
-        .serif-title {
-            font-family: 'Cinzel', serif;
-            font-size: 26px;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: var(--primary-dark);
-            letter-spacing: 3px;
-            margin: 0 0 15px 0;
-        }
-
-        /* هيرو الأسماء الفخم والمقروء */
-        .couple-hero {
-            margin: 45px 0;
-        }
-
-        .groom-name, .bride-name {
-            font-family: 'Cinzel', serif;
-            font-size: 32px;
-            font-weight: 900;
-            color: var(--primary-dark);
-            letter-spacing: 1px;
-            line-height: 1.3;
-        }
-
-        .connector-and {
-            font-family: 'Cinzel', serif;
-            font-size: 20px;
-            font-style: italic;
-            color: var(--accent-gold);
-            margin: 15px 0;
-            display: block;
-        }
-
-        /* نصوص المحتوى - تم تفتيح المسافات وتغميق اللون ليكون واضح بالملي */
-        .body-text {
-            font-size: 14px;
-            line-height: 1.9;
-            color: var(--text-main);
-            font-weight: 400;
-            max-width: 320px;
-            margin: 0 auto;
-        }
-
-        .luxury-divider {
-            width: 60px;
-            height: 1px;
-            background: var(--accent-gold);
-            margin: 20px auto;
-            opacity: 0.6;
-        }
-
-        /* بطاقات الجدول الزمني انسيابية وبدون حواف حادة */
-        .timeline-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 16px;
-            text-align: left;
-            box-shadow: 0 4px 20px rgba(61, 37, 25, 0.03);
-        }
-
-        .time-badge {
-            font-family: 'Cinzel', serif;
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--accent-gold);
-            margin-bottom: 4px;
-        }
-
-        .event-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--primary-dark);
-        }
-
-        .event-desc {
-            font-size: 12.5px;
-            color: var(--text-main);
-            margin-top: 4px;
-            line-height: 1.5;
-        }
-
-        /* باليت الدريس كود */
-        .palette-grid {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 25px;
-        }
-
-        .color-bubble-wrapper {
-            text-align: center;
-            font-size: 11px;
-            color: var(--text-main);
-            font-weight: 500;
-        }
-
-        .color-bubble {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-bottom: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-
-        /* أزرار بريميوم صريحة ونظيفة */
-        .action-button {
-            display: inline-block;
-            background: var(--primary-dark);
-            color: #ffffff;
-            text-decoration: none;
-            padding: 14px 36px;
-            border-radius: 30px;
-            font-weight: 500;
-            font-size: 13px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            box-shadow: 0 8px 20px rgba(61, 37, 25, 0.15);
-            margin-top: 10px;
-        }
-
-        .btn-rsvp {
-            background: transparent;
-            color: var(--primary-dark);
-            border: 1.5px solid var(--primary-dark);
-            box-shadow: none;
-            font-weight: 600;
-            padding: 14px 50px;
-        }
-    </style>
+    </script>
 </head>
-<body>
+<body class="bg-gray-300 flex justify-center items-center min-h-screen font-sans select-none">
 
-    <div class="invitation-container">
+    <!-- Mobile Screen Container -->
+    <div class="w-[412px] h-[860px] bg-fb-bg rounded-[40px] shadow-2xl overflow-hidden flex flex-col relative border-[8px] border-black">
+        
+        <!-- iOS Status Bar -->
+        <div class="h-12 bg-white flex justify-between items-center px-6 pt-2 shrink-0 z-50">
+            <span class="text-sm font-semibold tracking-tight">4:37</span>
+            <div class="flex items-center space-x-2 text-xs">
+                <i class="fa-solid fa-signal"></i>
+                <i class="fa-solid fa-wifi"></i>
+                <i class="fa-solid fa-battery-full text-base"></i>
+            </div>
+        </div>
 
-        <!-- Intro -->
-        <div class="section">
-            <div class="serif-subtitle">Save The Date</div>
+        <!-- Top Header Navigation -->
+        <div class="bg-white px-4 py-2 flex justify-between items-center border-b border-gray-100 shrink-0 z-40">
+            <h1 class="text-fb-blue text-2xl font-bold tracking-tight">facebook</h1>
+            <div class="flex items-center space-x-2">
+                <button onclick="toggleMenu('createMenu')" class="w-9 h-9 bg-gray-100 rounded-full flex items-center justify-center text-gray-800 hover:bg-fb-hover transition"><i class="fa-solid fa-plus text-sm"></i></button>
+                <button onclick="toggleMenu('searchOverlay')" class="w-9 h-9 bg-gray-100 rounded-full flex items-center justify-center text-gray-800 hover:bg-fb-hover transition"><i class="fa-solid fa-magnifying-glass text-sm"></i></button>
+                <button onclick="toggleMenu('sidebar')" class="w-9 h-9 bg-gray-100 rounded-full flex items-center justify-center text-gray-800 hover:bg-fb-hover transition relative">
+                    <i class="fa-brands fa-facebook-messenger text-sm"></i>
+                    <span class="absolute top-1 right-1 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Content Feed (Scrollable) -->
+        <div class="flex-1 overflow-y-auto pb-20 scrollbar-none">
             
-            <div class="couple-hero">
-                <div class="groom-name">SAIF ELKHATEB</div>
-                <span class="connector-and">and</span>
-                <div class="bride-name">YARA MIKHEMAR</div>
+            <!-- Create Post Box -->
+            <div class="bg-white p-3 mb-2 shadow-sm">
+                <div class="flex items-center space-x-3 mb-3">
+                    <div class="w-10 h-10 rounded-full bg-gray-300 overflow-hidden shrink-0 border border-gray-200">
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=100&q=80" class="w-full h-full object-cover">
+                    </div>
+                    <div onclick="openCreatePost()" class="flex-1 border border-fb-border rounded-full py-2 px-4 text-fb-secondary text-sm cursor-pointer hover:bg-gray-50 transition">
+                        What's on your mind?
+                    </div>
+                </div>
+                <div class="flex justify-between items-center pt-2 border-t border-gray-100 px-2 text-xs font-semibold text-fb-secondary">
+                    <button class="flex items-center space-x-2 hover:bg-gray-100 py-1.5 px-3 rounded-lg transition"><i class="fa-solid fa-video text-red-500 text-base"></i><span>Live</span></button>
+                    <div class="h-4 w-[1px] bg-gray-200"></div>
+                    <button class="flex items-center space-x-2 hover:bg-gray-100 py-1.5 px-3 rounded-lg transition"><i class="fa-solid fa-images text-green-500 text-base"></i><span>Photo</span></button>
+                    <div class="h-4 w-[1px] bg-gray-200"></div>
+                    <button class="flex items-center space-x-2 hover:bg-gray-100 py-1.5 px-3 rounded-lg transition"><i class="fa-solid fa-location-dot text-red-400 text-base"></i><span>Check in</span></button>
+                </div>
             </div>
 
-            <h2 class="serif-title" style="font-size: 18px; letter-spacing: 2px;">Dear Guests!</h2>
-            <p class="body-text">
-                Something wonderful is about to happen in our lives. We would be so happy to share this special day with the people who matter most to us — our family and dearest friends. Please join us as we celebrate the beginning of our forever.
-            </p>
-        </div>
+            <!-- Stories Tray -->
+            <div class="bg-white py-3 mb-2 shadow-sm overflow-x-auto flex space-x-2 px-3 scrollbar-none">
+                <!-- Create Story Card -->
+                <div class="w-[105px] h-[180px] bg-white rounded-xl border border-gray-200 shrink-0 flex flex-col overflow-hidden relative shadow-sm cursor-pointer group">
+                    <div class="h-[120px] bg-gray-100 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="flex-1 bg-white relative flex flex-col items-center justify-end pb-2">
+                        <div class="absolute -top-4 w-8 h-8 bg-fb-blue rounded-full border-4 border-white flex items-center justify-center text-white text-xs shadow">
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                        <span class="text-[11px] font-bold text-gray-800 leading-tight text-center px-1">Create story</span>
+                    </div>
+                </div>
 
-        <!-- Date -->
-        <div class="section">
-            <div class="serif-subtitle">The Wedding Month</div>
-            <h1 class="serif-title" style="font-size: 36px; margin: 0;">JULY</h1>
-            <div style="font-size: 11px; letter-spacing: 3px; color: var(--accent-gold); font-weight: 500;">TWO THOUSAND TWENTY-SIX</div>
-            <div class="luxury-divider"></div>
-            <div style="font-size: 16px; font-weight: 600; letter-spacing: 0.5px;">Friday, July 10, 2026</div>
-        </div>
+                <!-- Story Items -->
+                <div class="w-[105px] h-[180px] rounded-xl relative shrink-0 overflow-hidden shadow-sm cursor-pointer group">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60"></div>
+                    <div class="absolute top-2 left-2 w-8 h-8 rounded-full border-2 border-fb-blue p-0.5 overflow-hidden bg-white">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <span class="absolute bottom-2 left-2 right-2 text-white text-[11px] font-semibold leading-tight drop-shadow truncate">Ahmed Ali</span>
+                </div>
 
-        <!-- Location -->
-        <div class="section">
-            <div class="serif-subtitle">The Venue</div>
-            <h1 class="serif-title">White Garden</h1>
-            <p class="body-text" style="margin-bottom: 20px;">An open-air wedding venue tucked among olive trees and warm string lights, just outside the heart of Cairo, Egypt.</p>
-            <a href="#" class="action-button">📍 Open in Maps</a>
-        </div>
+                <div class="w-[105px] h-[180px] rounded-xl relative shrink-0 overflow-hidden shadow-sm cursor-pointer group">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60"></div>
+                    <div class="absolute top-2 left-2 w-8 h-8 rounded-full border-2 border-fb-blue p-0.5 overflow-hidden bg-white">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <span class="absolute bottom-2 left-2 right-2 text-white text-[11px] font-semibold leading-tight drop-shadow truncate">Nour El Sherbini</span>
+                </div>
 
-        <!-- Program -->
-        <div class="section">
-            <div class="serif-subtitle">Celebration Schedule</div>
-            
-            <div class="timeline-card">
-                <div class="time-badge">5:00 PM</div>
-                <div class="event-title">Guest Arrival</div>
-                <div class="event-desc">Bring your warmest smile and a heart full of joy.</div>
+                <div class="w-[105px] h-[180px] rounded-xl relative shrink-0 overflow-hidden shadow-sm cursor-pointer group">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60"></div>
+                    <div class="absolute top-2 left-2 w-8 h-8 rounded-full border-2 border-fb-blue p-0.5 overflow-hidden bg-white">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=100&q=80" class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <span class="absolute bottom-2 left-2 right-2 text-white text-[11px] font-semibold leading-tight drop-shadow truncate">Mahmoud Ghanim</span>
+                </div>
             </div>
 
-            <div class="timeline-card">
-                <div class="time-badge">6:00 PM</div>
-                <div class="event-title">Ceremony</div>
-                <div class="event-desc">The moment we say I do — under string lights and stars.</div>
+            <!-- Feed Post 1 -->
+            <div class="bg-white mb-2 shadow-sm">
+                <!-- Post Header -->
+                <div class="p-3 flex items-center justify-between">
+                    <div class="flex items-center space-x-2.5">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" class="w-10 h-10 rounded-full object-cover">
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-900 leading-tight">Mohamed Eldayed <span class="text-xs font-normal text-fb-secondary">is with</span> Malak Ali</h3>
+                            <div class="flex items-center space-x-1 text-xs text-fb-secondary mt-0.5">
+                                <span>47m</span><span>·</span><i class="fa-solid fa-earth-americas text-[10px]"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-3 text-fb-secondary">
+                        <i class="fa-solid fa-ellipsis cursor-pointer hover:text-gray-900"></i>
+                        <i class="fa-solid fa-xmark cursor-pointer hover:text-gray-900 text-base"></i>
+                    </div>
+                </div>
+
+                <!-- Post Text Content -->
+                <div class="px-3 pb-2 text-sm text-gray-800 leading-normal">
+                    رسميا مليون مبروك دكتوره ملك على حسين صيدلة المنصورة 🎉🩺
+                </div>
+
+                <!-- Post Image -->
+                <div class="w-full bg-black max-h-[420px] overflow-hidden flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80" class="w-full object-cover">
+                </div>
+
+                <!-- Reactions Summary Bar -->
+                <div class="px-3 py-2 flex justify-between items-center text-xs text-fb-secondary border-b border-gray-100">
+                    <div class="flex items-center space-x-1">
+                        <div class="flex -space-x-1">
+                            <span class="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center text-[9px] text-white"><i class="fa-solid fa-thumbs-up"></i></span>
+                            <span class="w-4 h-4 rounded-full bg-red-500 flex items-center justify-center text-[9px] text-white"><i class="fa-solid fa-heart"></i></span>
+                        </div>
+                        <span>146</span>
+                    </div>
+                    <div class="flex space-x-3">
+                        <span>1 comments</span>
+                        <span>5 shares</span>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="grid grid-cols-3 py-1 text-fb-secondary font-semibold text-xs border-b border-gray-100">
+                    <button class="flex items-center justify-center space-x-2 py-2 hover:bg-gray-50 rounded-lg transition active:text-fb-blue"><i class="fa-regular fa-thumbs-up text-base"></i><span>Like</span></button>
+                    <button class="flex items-center justify-center space-x-2 py-2 hover:bg-gray-50 rounded-lg transition"><i class="fa-regular fa-comment text-base"></i><span>Comment</span></button>
+                    <button class="flex items-center justify-center space-x-2 py-2 hover:bg-gray-50 rounded-lg transition"><i class="fa-solid fa-share text-base"></i><span>Share</span></button>
+                </div>
             </div>
 
-            <div class="timeline-card">
-                <div class="time-badge">7:30 PM</div>
-                <div class="event-title">Dinner</div>
-                <div class="event-desc">A long table, candlelight, and food made with love.</div>
+            <!-- Suggested Section (People You May Know) -->
+            <div class="bg-white mb-2 py-3 shadow-sm">
+                <div class="px-3 flex justify-between items-center mb-2">
+                    <h3 class="font-bold text-gray-900 text-sm">People you may know</h3>
+                    <i class="fa-solid fa-ellipsis text-fb-secondary cursor-pointer"></i>
+                </div>
+                <div class="flex space-x-3 overflow-x-auto px-3 scrollbar-none pb-1">
+                    <!-- Suggestion Card 1 -->
+                    <div class="w-[160px] bg-white rounded-xl border border-gray-200 overflow-hidden shrink-0 shadow-sm flex flex-col">
+                        <div class="h-[140px] bg-gray-100 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-3 flex flex-col flex-1 justify-between">
+                            <div>
+                                <h4 class="font-bold text-sm text-gray-900 truncate">Ahmed Elmenawy</h4>
+                                <span class="text-[11px] text-fb-secondary">1 mutual friend</span>
+                            </div>
+                            <div class="mt-3 flex flex-col space-y-1.5">
+                                <button class="w-full bg-fb-blue text-white py-1.5 rounded-lg text-xs font-semibold hover:bg-blue-600 transition">Add friend</button>
+                                <button class="w-full bg-gray-200 text-gray-800 py-1.5 rounded-lg text-xs font-semibold hover:bg-gray-300 transition">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Suggestion Card 2 -->
+                    <div class="w-[160px] bg-white rounded-xl border border-gray-200 overflow-hidden shrink-0 shadow-sm flex flex-col">
+                        <div class="h-[140px] bg-gray-100 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-3 flex flex-col flex-1 justify-between">
+                            <div>
+                                <h4 class="font-bold text-sm text-gray-900 truncate">Abdou Mohamed</h4>
+                                <span class="text-[11px] text-fb-secondary">20 mutual friends</span>
+                            </div>
+                            <div class="mt-3 flex flex-col space-y-1.5">
+                                <button class="w-full bg-fb-blue text-white py-1.5 rounded-lg text-xs font-semibold hover:bg-blue-600 transition">Add friend</button>
+                                <button class="w-full bg-gray-200 text-gray-800 py-1.5 rounded-lg text-xs font-semibold hover:bg-gray-300 transition">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bottom Tab Bar -->
+        <div class="absolute bottom-0 left-0 right-0 h-14 bg-white border-t border-gray-200 flex justify-around items-center px-2 z-40">
+            <button onclick="switchTab(this)" class="flex-1 flex flex-col items-center justify-center text-fb-blue relative py-1"><i class="fa-solid fa-house text-xl"></i><span class="absolute bottom-0 w-full h-0.5 bg-fb-blue"></span></button>
+            <button onclick="switchTab(this)" class="flex-1 flex flex-col items-center justify-center text-fb-secondary hover:text-gray-800 py-1 relative">
+                <i class="fa-solid fa-clapperboard text-xl"></i>
+                <span class="absolute top-1 right-5 w-4 h-4 bg-red-500 rounded-full text-[10px] text-white font-bold flex items-center justify-center border-2 border-white">1</span>
+            </button>
+            <button onclick="switchTab(this)" class="flex-1 flex flex-col items-center justify-center text-fb-secondary hover:text-gray-800 py-1"><i class="fa-solid fa-user-group text-xl"></i></button>
+            <button onclick="switchTab(this)" class="flex-1 flex flex-col items-center justify-center text-fb-secondary hover:text-gray-800 py-1"><i class="fa-regular fa-bell text-xl"></i></button>
+            <button onclick="toggleMenu('sidebar')" class="flex-1 flex flex-col items-center justify-center text-fb-secondary hover:text-gray-800 py-1">
+                <div class="w-6 h-6 rounded-full overflow-hidden border border-gray-300">
+                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=50&q=80" class="w-full h-full object-cover">
+                </div>
+            </button>
+        </div>
+
+        <!-- Overlay Menus / Drawers -->
+        
+        <!-- Create Menu Modal -->
+        <div id="createMenu" class="absolute inset-0 bg-black/40 z-50 hidden flex items-end justify-center animate-fadeIn" onclick="toggleMenu('createMenu')">
+            <div class="bg-white w-full rounded-t-2xl p-4 space-y-4 shadow-xl" onclick="event.stopPropagation()">
+                <div class="w-12 h-1 bg-gray-300 rounded-full mx-auto"></div>
+                <h3 class="font-bold text-lg text-gray-900 px-2">Create</h3>
+                <div class="space-y-2">
+                    <div class="flex items-center space-x-3 p-2 hover:bg-gray-100 rounded-xl cursor-pointer"><div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-800"><i class="fa-solid fa-pen-to-square"></i></div><span class="font-semibold text-sm">Post</span></div>
+                    <div class="flex items-center space-x-3 p-2 hover:bg-gray-100 rounded-xl cursor-pointer"><div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-800"><i class="fa-solid fa-book-open"></i></div><span class="font-semibold text-sm">Story</span></div>
+                    <div class="flex items-center space-x-3 p-2 hover:bg-gray-100 rounded-xl cursor-pointer"><div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-800"><i class="fa-solid fa-clapperboard"></i></div><span class="font-semibold text-sm">Reel</span></div>
+                    <div class="flex items-center space-x-3 p-2 hover:bg-gray-100 rounded-xl cursor-pointer"><div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-800"><i class="fa-solid fa-video"></i></div><span class="font-semibold text-sm">Live</span></div>
+                </div>
             </div>
         </div>
 
-        <!-- Dress Code -->
-        <div class="section">
-            <div class="serif-subtitle">Dress Code</div>
-            <p class="body-text">We'd love it if you matched our soft, romantic palette — anything in these warm tones will look beautiful.</p>
-            
-            <div class="palette-grid">
-                <div class="color-bubble-wrapper"><div class="color-bubble" style="background-color: #eac5c9;"></div><span>Pink</span></div>
-                <div class="color-bubble-wrapper"><div class="color-bubble" style="background-color: #ebdcb9;"></div><span>Beige</span></div>
-                <div class="color-bubble-wrapper"><div class="color-bubble" style="background-color: #83583f;"></div><span>Brown</span></div>
-                <div class="color-bubble-wrapper"><div class="color-bubble" style="background-color: #decba5;"></div><span>Gold</span></div>
+        <!-- Search Overlay -->
+        <div id="searchOverlay" class="absolute inset-0 bg-white z-50 hidden flex flex-col">
+            <div class="p-3 flex items-center space-x-3 border-b border-gray-200">
+                <button onclick="toggleMenu('searchOverlay')" class="text-gray-700 text-lg"><i class="fa-solid fa-arrow-left"></i></button>
+                <div class="flex-1 bg-gray-100 rounded-full flex items-center px-4 py-2 space-x-2">
+                    <i class="fa-solid fa-magnifying-glass text-gray-400 text-sm"></i>
+                    <input type="text" placeholder="Search Facebook" class="bg-transparent border-none outline-none text-sm w-full">
+                </div>
+            </div>
+            <div class="p-4 flex-1 overflow-y-auto">
+                <div class="flex justify-between items-center mb-3">
+                    <h4 class="font-bold text-gray-900 text-sm">Recent</h4>
+                    <span class="text-fb-blue text-xs font-semibold cursor-pointer">See all</span>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between"><div class="flex items-center space-x-3"><div class="w-10 h-10 bg-gray-200 rounded-full overflow-hidden"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" class="w-full h-full object-cover"></div><span class="text-sm font-semibold">Ahmed Ali</span></div><i class="fa-solid fa-xmark text-gray-400"></i></div>
+                    <div class="flex items-center justify-between"><div class="flex items-center space-x-3"><div class="w-10 h-10 bg-gray-200 rounded-full overflow-hidden"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" class="w-full h-full object-cover"></div><span class="text-sm font-semibold">Nour El Sherbini</span></div><i class="fa-solid fa-xmark text-gray-400"></i></div>
+                </div>
             </div>
         </div>
 
-        <!-- RSVP -->
-        <div class="section" style="margin-bottom: 0;">
-            <div class="serif-subtitle">Kindly Reply</div>
-            <p class="body-text" style="margin-bottom: 25px;">We'd be so happy to have you with us on our big day. Please let us know if you can make it.</p>
-            <a href="#" class="action-button btn-rsvp">Fill the Form</a>
+        <!-- Sidebar Menu Drawer -->
+        <div id="sidebar" class="absolute inset-0 bg-black/40 z-50 hidden flex justify-start" onclick="toggleMenu('sidebar')">
+            <div class="bg-white w-[320px] h-full shadow-2xl flex flex-col p-4 overflow-y-auto" onclick="event.stopPropagation()">
+                <div class="flex items-center justify-between mb-4 border-b pb-3">
+                    <div class="flex items-center space-x-2">
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=100&q=80" class="w-10 h-10 rounded-full object-cover">
+                        <span class="font-bold text-sm">Mohamed Eldayed</span>
+                    </div>
+                    <button onclick="toggleMenu('sidebar')" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="space-y-3 text-sm font-semibold text-gray-800">
+                    <div class="flex items-center space-x-3 p-2 hover:bg-gray-100 rounded-xl cursor-pointer"><i class="fa-solid fa-user-group text-fb-blue text-lg w-6"></i><span>Friends</span></div>
+                    <div class="flex items-center space-x-3 p-2 hover:bg-gray-100 rounded-xl cursor-pointer"><i class="fa-solid fa-chart-line text-fb-blue text-lg w-6"></i><span>Professional dashboard</span></div>
+                    <div class="flex items-center space-x-3 p-2 hover:bg-gray-100 rounded-xl cursor-pointer"><i class="fa-solid fa-bookmark text-amber-500 text-lg w-6"></i><span>Saved</span></div>
+                    <div class="flex items-center space-x-3 p-2 hover:bg-gray-100 rounded-xl cursor-pointer"><i class="fa-solid fa-clock-rotate-left text-fb-blue text-lg w-6"></i><span>Memories</span></div>
+                    <div class="flex items-center space-x-3 p-2 hover:bg-gray-100 rounded-xl cursor-pointer"><i class="fa-solid fa-flag text-red-500 text-lg w-6"></i><span>Pages</span></div>
+                    <div class="flex items-center space-x-3 p-2 hover:bg-gray-100 rounded-xl cursor-pointer"><i class="fa-solid fa-store text-fb-blue text-lg w-6"></i><span>Marketplace</span></div>
+                </div>
+            </div>
         </div>
 
     </div>
 
+    <script>
+        function toggleMenu(id) {
+            const el = document.getElementById(id);
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+            } else {
+                el.classList.add('hidden');
+            }
+        }
+        function switchTab(btn) {
+            document.querySelectorAll('.absolute.bottom-0.left-0.right-0 button').forEach(b => {
+                b.classList.remove('text-fb-blue');
+                b.classList.add('text-fb-secondary');
+                const line = b.querySelector('.absolute.bottom-0');
+                if(line) line.remove();
+            });
+            btn.classList.remove('text-fb-secondary');
+            btn.classList.add('text-fb-blue');
+            if(!btn.querySelector('.absolute.bottom-0')) {
+                const indicator = document.createElement('span');
+                indicator.className = 'absolute bottom-0 w-full h-0.5 bg-fb-blue';
+                btn.appendChild(indicator);
+            }
+        }
+        function openCreatePost() {
+            alert("Opening Create Post Composer...");
+        }
+    </script>
 </body>
 </html>
